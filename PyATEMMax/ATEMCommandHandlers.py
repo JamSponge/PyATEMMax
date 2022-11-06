@@ -152,9 +152,14 @@ class ATEMCommandHandlers():
     #  Command handler methods
     #
 
+    def _handle_InCm(self) -> None:
+        self._sw.setPayloadSent()
+
+
     def _handle_ver(self) -> None:
         self._d.protocolVersion.major = self._inBuf.getU16(0)
         self._d.protocolVersion.minor = self._inBuf.getU16(2)
+
 
     def _handle_pin(self) -> None:
         self._d.atemModel = self._inBuf.getString(0, 44)
@@ -577,7 +582,7 @@ class ATEMCommandHandlers():
             FEAT_LENS_FOCUS = 0
             # FEAT_LENS_AUTOFOCUSED = 1    # Documented, but not implemented
             FEAT_LENS_IRIS = 3
-            FEAT_LENS_ZOOMNORMALIZED = 8 # Not docummented
+            FEAT_LENS_ZOOMNORMALIZED = 8 # Not documented
             FEAT_LENS_ZOOM = 9
 
             if feature == FEAT_LENS_IRIS:
@@ -588,7 +593,7 @@ class ATEMCommandHandlers():
                 self._d.cameraControl[camera].zoom.normalized = self._inBuf.getFloat(16, True, 16, 10)
             elif feature == FEAT_LENS_ZOOM:
                 value = self._inBuf.getS16(16)
-                self._d.cameraControl[camera].zoom.speed = mapValue(value, -2048, 2048, 0.0, 1.0)
+                self._d.cameraControl[camera].zoom.speed = mapValue(value, -2048, 2048, -1.0, 1.0)
             else:
                 self._sw.log.warn(f"UNKNOWN lens feature ({feature})")
 
@@ -596,7 +601,7 @@ class ATEMCommandHandlers():
             FEAT_CAMERA_GAIN = 1
             FEAT_CAMERA_WHITEBALANCE = 2
             FEAT_CAMERA_SHUTTER = 5
-            FEAT_CAMERA_DETAIL = 8 # Docummented in LibAtem/LibAtem
+            FEAT_CAMERA_DETAIL = 8 # Documented in LibAtem/LibAtem
 
             if feature == FEAT_CAMERA_GAIN:
                 self._d.cameraControl[camera].gain.value = self._inBuf.getS16(16)
@@ -610,7 +615,7 @@ class ATEMCommandHandlers():
                 self._sw.log.warn(f"UNKNOWN camera feature ({feature})")
 
         elif adjustmentDomain == DOM_COLORBARS:
-            FEAT_COLORBARS = 4 # Not docummented
+            FEAT_COLORBARS = 4 # Not documented
 
             if feature == FEAT_COLORBARS:
                 self._d.cameraControl[camera].colorbars = self._inBuf.getS16(16)

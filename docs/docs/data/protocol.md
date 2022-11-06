@@ -76,10 +76,42 @@ switcher.programInput[0].videoSource
 switcher.programInput["mixEffect1"].videoSource
 {% endhighlight %}
 
+### Note about enumerated values
+
+In the following value lists there are some enumerated values, like:
+`switcher.atem.videoSources.input1` ... `switcher.atem.videoSources.input40`
+
+Please keep in mind that the associated numeric value does not need to be the same as the number in the value name.
+
+As an example, you can see some values match:
+* `switcher.atem.videoSources.input1` == `1`
+* `switcher.atem.cameras.camera1` == `1`
+
+While some others don't:
+* `switcher.atem.videoSources.color1` == `2001`
+* `switcher.atem.videoSources.mediaPlayer1` == `3010`
+* `switcher.atem.videoSources.key1Mask` == `4010`
+* `switcher.atem.videoSources.dsk1Mask` == `5010`
+* `switcher.atem.videoSources.cleanFeed1` == `7001`
+* `switcher.atem.videoSources.auxilary1` == `8001`
+* `switcher.atem.mixEffects.mixEffect1` == `0`
+* `switcher.atem.multiViewers.multiViewer1` == `0`
+* `switcher.atem.windows.window1` == `0`
+* `switcher.atem.keyers.keyer1` == `0`
+* `switcher.atem.dsks.dsk1` == `0`
+* `switcher.atem.colorGenerators.colorGenerator1` == `0`
+* `switcher.atem.auxChannels.auxChannel1` == `0`
+* `switcher.atem.mediaPlayers.mediaPlayer1` == `0`
+* `switcher.atem.clipBanks.clipBank1` == `0`
+* `switcher.atem.stillBanks.stillBank1` == `0`
+* `switcher.atem.macros.macro1` == `0`
+* `switcher.atem.boxes.box1` == `0`
+
+
 ## Value lists
 
 
-### swicher.atem.videoSources
+### switcher.atem.videoSources (ATEMVideoSources)
 * `black`
 * `input1..40`
 * `colorBars`
@@ -98,7 +130,7 @@ switcher.programInput["mixEffect1"].videoSource
 * `input1Direct`
 
 
-### swicher.atem.audioSources
+### switcher.atem.audioSources (ATEMAudioSources)
 * `input1..20`
 * `xlr`
 * `aes_ebu`
@@ -107,13 +139,13 @@ switcher.programInput["mixEffect1"].videoSource
 * `mp1..4`
 
 
-### swicher.atem.downConverterModes
+### switcher.atem.downConverterModes (ATEMDownConverterModes)
 * `centerCut`
 * `letterBox`
 * `anamorphic`
 
 
-### swicher.atem.videoModeFormats
+### switcher.atem.videoModeFormats (ATEMVideoModeFormats)
 * `f525i59_94_ntsc`
 * `f625i_50_pal`
 * `f525i59_94_ntsc_16_9`
@@ -134,7 +166,7 @@ switcher.programInput["mixEffect1"].videoSource
 * `f2160p29_97`
 
 
-### swicher.atem.externalPortTypes
+### switcher.atem.externalPortTypes (ATEMExternalPortTypes)
 * `internal`
 * `sdi`
 * `hdmi`
@@ -143,7 +175,7 @@ switcher.programInput["mixEffect1"].videoSource
 * `sVideo`
 
 
-### swicher.atem.switcherPortTypes
+### switcher.atem.switcherPortTypes (ATEMSwitcherPortTypes)
 * `external`
 * `black`
 * `colorBars`
@@ -155,17 +187,17 @@ switcher.programInput["mixEffect1"].videoSource
 * `mEOutput`
 * `auxiliary`
 * `mask`
-* `multiviewer`
+* `multiViewer`
 
 
-### swicher.atem.multiViewerLayouts
+### switcher.atem.multiViewerLayouts (ATEMMultiViewerLayouts)
 * `top`
 * `bottom`
 * `left`
 * `right`
 
 
-### swicher.atem.transitionStyles
+### switcher.atem.transitionStyles (ATEMTransitionStyles)
 * `mix`
 * `dip`
 * `wipe`
@@ -173,32 +205,32 @@ switcher.programInput["mixEffect1"].videoSource
 * `sting`
 
 
-### swicher.atem.keyerTypes
+### switcher.atem.keyerTypes (ATEMKeyerTypes)
 * `luma`
 * `chroma`
 * `pattern`
 * `dVE`
 
 
-### swicher.atem.borderBevels
+### switcher.atem.borderBevels (ATEMBorderBevels)
 * `no`
 * `inOut`
 * `in_`
 * `out`
 
 
-### swicher.atem.mediaPlayerSourceTypes
+### switcher.atem.mediaPlayerSourceTypes (ATEMMediaPlayerSourceTypes)
 * `still`
 * `clip`
 
 
-### swicher.atem.audioMixerInputTypes
+### switcher.atem.audioMixerInputTypes (ATEMAudioMixerInputTypes)
 * `externalVideo`
 * `mediaPlayer`
 * `externalAudio`
 
 
-### swicher.atem.audioMixerInputPlugTypes
+### switcher.atem.audioMixerInputPlugTypes (ATEMAudioMixerInputPlugTypes)
 * `internal`
 * `sdi`
 * `hdmi`
@@ -210,13 +242,13 @@ switcher.programInput["mixEffect1"].videoSource
 * `rca`
 
 
-### swicher.atem.audioMixerInputMixOptions
+### switcher.atem.audioMixerInputMixOptions (ATEMAudioMixerInputMixOptions)
 * `off`
 * `on`
 * `afv`
 
 
-### swicher.atem.dVETransitionStyles
+### switcher.atem.dVETransitionStyles (ATEMDVETransitionStyles)
 * `swooshTopLeft`
 * `swooshTop`
 * `swooshTopRight`
@@ -254,7 +286,7 @@ switcher.programInput["mixEffect1"].videoSource
 * `graphicLogoWipe`
 
 
-### swicher.atem.patternStyles
+### switcher.atem.patternStyles (ATEMPatternStyles)
 * `leftToRightBar`
 * `topToBottomBar`
 * `horizontalBarnDoor`
@@ -275,14 +307,14 @@ switcher.programInput["mixEffect1"].videoSource
 * `topRightDiagonal`
 
 
-### swicher.atem.camerControlSharpeningLevels
+### switcher.atem.camerControlSharpeningLevels (ATEMCamerControlSharpeningLevels)
 * `off`
 * `low`
 * `medium`
 * `high`
 
 
-### swicher.atem.macroActions
+### switcher.atem.macroActions (ATEMMacroActions)
 * `runMacro`
 * `stopMacro`
 * `stopRecording`
@@ -291,7 +323,7 @@ switcher.programInput["mixEffect1"].videoSource
 * `deleteMacro`
 
 
-### swicher.atem.keyFrames
+### switcher.atem.keyFrames (ATEMKeyFrames)
 * `a`
 * `b`
 * `full`
@@ -299,56 +331,56 @@ switcher.programInput["mixEffect1"].videoSource
 
 
 
-### swicher.atem.mixEffects
+### switcher.atem.mixEffects (ATEMMixEffects)
 * `mixEffect1..4`
 
 
-### swicher.atem.multiViewers
+### switcher.atem.multiViewers (ATEMMultiViewers)
 * `multiViewer1..2`
 
 
-### swicher.atem.windows
+### switcher.atem.windows (ATEMWindows)
 * `window1..10`
 
 
-### swicher.atem.keyers
+### switcher.atem.keyers (ATEMKeyers)
 * `keyer1..4`
 
 
-### swicher.atem.dSKs
+### switcher.atem.dSKs (ATEMDSKs)
 * `dsk1..2`
 
 
-### swicher.atem.colorGenerators
+### switcher.atem.colorGenerators (ATEMColorGenerators)
 * `colorGenerator1..2`
 
 
-### swicher.atem.auxChannels
+### switcher.atem.auxChannels (ATEMAuxChannels)
 * `auxChannel1..6`
 
 
-### swicher.atem.cameras
+### switcher.atem.cameras (ATEMCameras)
 * `camera1..20`
 
 
-### swicher.atem.mediaPlayers
+### switcher.atem.mediaPlayers (ATEMMediaPlayers)
 * `mediaPlayer1..4`
 
 
-### swicher.atem.clipBanks
+### switcher.atem.clipBanks (ATEMClipBanks)
 * `clipBank1..2`
 
 
-### swicher.atem.stillBanks
+### switcher.atem.stillBanks (ATEMStillBanks)
 * `stillBank1..32`
 
 
-### swicher.atem.macros
+### switcher.atem.macros (ATEMMacros)
 * `stop`
 * `macro1..100`
 
 
-### swicher.atem.boxes
+### switcher.atem.boxes (ATEMBoxes)
 * `box1..4`
 
 
