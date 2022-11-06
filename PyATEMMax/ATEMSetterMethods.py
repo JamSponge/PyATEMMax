@@ -2609,7 +2609,7 @@ class ATEMSetterMethods():
         self.switcher._outBuf.setS16(16, iris)
         self.switcher._finishCommandPacket()
 
-
+   
     def setCameraControlFocus(self, camera: Union[ATEMConstant, str, int], focus: int) -> None:
         """Set Camera Control Focus
 
