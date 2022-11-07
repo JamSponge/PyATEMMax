@@ -6,16 +6,16 @@ permalink: /about/
 
 `PyATEMMax` is a Python port of the great [ATEMmax][skaarhoj-repo] Arduino library by [Kasper Skårhøj][skaarhoj-site], so all credit goes to Kasper.
 
-It exposes all methods and data of the original library, covering ATEM Sofware Control firmware versions up to **7.5.0**. [See ATEM version compatibility note](atem-version.md).
+It exposes all methods and data of the original library, covering ATEM Sofware Control firmware versions up to **7.5.0**. [See ATEM version compatibility note](atem-version).
 
 
 ## In this section
 
-* [History](history.md)
-* [License](license.md)
-* [Roadmap](roadmap.md)
-* [ATEM version compatibility note](atem-version.md)
-* [Changelog](changelog.md)
+* [History](history)
+* [License](license)
+* [Roadmap](roadmap)
+* [ATEM version compatibility note](atem-version)
+* [Changelog](changelog)
 
 
 

@@ -30,7 +30,7 @@ $ python3 scan.py 192.168.1
 
 ## Code walkthrough
 
-Start with the usual initial steps (explained in [Examples](./index.md))
+Start with the usual initial steps (explained in [Examples](../))
 
 {% highlight python %}
 #!/usr/bin/env python3

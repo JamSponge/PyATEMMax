@@ -22,14 +22,14 @@ switcher.connect(args.ip)
 switcher.waitForConnection()
 
 # Show initial tally state
-last_src = switcher.programInput[args.mixeffect].videoSource.value
+last_src = switcher.programInput[args.mixeffect].videoSource
 print(f"[{time.ctime()}] Connected, tally {args.source} is [{'ON' if last_src == args.source else 'OFF' }]")
 
 # Loop forever watching for changes
 print(f"[{time.ctime()}] Watching for tally changes on videoSource {args.source}")
 while True:
     # Watch for tally changes
-    src = switcher.programInput[args.mixeffect].videoSource.value
+    src = switcher.programInput[args.mixeffect].videoSource
     if src != last_src:
         # print(f"[{time.ctime()}] programInput.videoSource changed!")
         if src == args.source:

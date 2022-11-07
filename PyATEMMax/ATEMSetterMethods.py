@@ -2707,25 +2707,6 @@ class ATEMSetterMethods():
         self.switcher._finishCommandPacket()
 
 
-    def setCameraControlZoomDistance(self, camera: Union[ATEMConstant, str, int], mm: int) -> None:
-            """Set Camera Control Zoom Distance
-
-            Args:
-                camera: see ATEMCameras
-                mm (int): Lens Min-Max 
-            """
-
-            camera_val = self.atem.cameras[camera].value
-
-            self.switcher._prepareCommandPacket("CCmd", 24)
-            self.switcher._outBuf.setU8(0, camera_val)
-            self.switcher._outBuf.setU8(1, 0)
-            self.switcher._outBuf.setU8(2, 7)
-            self.switcher._outBuf.setU8(4, 0x02)
-            self.switcher._outBuf.setU8(9, 0x01)
-            self.switcher._outBuf.setS16(16, mm)
-            self.switcher._finishCommandPacket()
-
     def setCameraControlZoomNormalized(self, camera: Union[ATEMConstant, str, int], zoomNormalized: float) -> None:
         """Set Camera Control Zoom Normalized
 
@@ -2751,7 +2732,7 @@ class ATEMSetterMethods():
 
         Args:
             camera: see ATEMCameras
-            zoomSpeed (float): -1.0-1.0
+            zoomSpeed (float): 0.0-1.0
         """
 
         camera_val = self.atem.cameras[camera].value
@@ -2763,7 +2744,7 @@ class ATEMSetterMethods():
         self.switcher._outBuf.setU8(4, 0x80)
         self.switcher._outBuf.setU8(9, 0x01)
 
-        value = int(mapValue(zoomSpeed, -1.0, 1.0, -2048, 2048))
+        value = int(mapValue(zoomSpeed, 0.0, 1.0, -2048, 2048))
         self.switcher._outBuf.setS16(16, value)
 
         self.switcher._finishCommandPacket()
@@ -3252,8 +3233,8 @@ class ATEMSetterMethods():
         Args:
             camera: see ATEMCameras
             fps (int): ?
-            resolution (int): 3 = 1080 / 6 = 4k
-            interlaced (int): 0 = p, 1 = i
+            resolution (int): ?
+            interlaced (int): ?
         """
 
         camera_val = self.atem.cameras[camera].value

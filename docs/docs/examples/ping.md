@@ -45,7 +45,7 @@ $ python3 ping.py 192.168.1.222 -i 10
 
 ## Code walkthrough
 
-Start with the usual initial steps (explained in [Examples](./index.md))
+Start with the usual initial steps (explained in [Examples](../))
 
 {% highlight python %}
 #!/usr/bin/env python3
